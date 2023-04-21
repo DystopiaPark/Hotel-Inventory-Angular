@@ -21,6 +21,7 @@ export class RoomsComponent implements OnInit {
 
   roomList: RoomList[] = [
     {
+      roomNumber: 1,
       roomType: 'Deluxe Room',
       amenities: 'Air Conditioner, Free Wi-Fi, TV, Bathroom, Kitchen',
       price: 500,
@@ -29,6 +30,7 @@ export class RoomsComponent implements OnInit {
       checkoutTime: new Date('12-Nov-2021'),
     },
     {
+      roomNumber: 2,
       roomType: 'Deluxe Room',
       amenities: 'Air Conditioner, Free Wi-Fi, TV, Bathroom, Kitchen',
       price: 1000,
@@ -37,6 +39,7 @@ export class RoomsComponent implements OnInit {
       checkoutTime: new Date('12-Nov-2021'),
     },
     {
+      roomNumber: 3,
       roomType: 'Private Suite',
       amenities: 'Air Conditioner, Free Wi-Fi, TV, Bathroom, Kitchen',
       price: 15000,
