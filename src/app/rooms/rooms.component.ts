@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Room } from './rooms';
+import { Room, RoomList } from './rooms';
 
 @Component({
   selector: 'app-rooms',
@@ -14,10 +14,21 @@ export class RoomsComponent implements OnInit {
   hideRooms = false;
 
   rooms: Room = {
-    // totalRooms: 20,
-    // availableRooms: 10,
-    // bookedRooms: 5,
+    totalRooms: 20,
+    availableRooms: 10,
+    bookedRooms: 5,
   };
+
+  roomList: RoomList[] = [
+    {
+      roomType: 'Deluxe Room',
+      amenities: 'Air Conditioner, Free Wi-Fi, TV, Bathroom, Kitchen',
+      price: 500,
+      photos: 'https://images.unsplash.com/photo-1518791831217-8f162f1e1131',
+      checkinTime: new Date('11-Nov-2021'),
+      checkoutTime: new Date('12-Nov-2021'),
+    },
+  ];
 
   constructor() {}
 
