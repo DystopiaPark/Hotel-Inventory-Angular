@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { RoomsComponent } from './rooms/rooms.component';
 
 @Component({
   selector: 'app-root', // html tag, "view"
@@ -14,8 +20,12 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'hotelinventoryapp';
 
-  role = 'User';
+  @ViewChild('user', { read: ViewContainerRef }) vcr!: ViewContainerRef;
+
+  ngAfterViewInit() {
+    const componentRef = this.vcr.createComponent(RoomsComponent);
+  }
 }
