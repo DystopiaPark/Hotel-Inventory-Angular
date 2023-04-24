@@ -80,6 +80,7 @@ export class RoomsComponent implements OnInit {
       rating: 4.5,
     };
 
-    this.roomList.push(room);
+    // this.roomList.push(room); without OnPush
+    this.roomList = [...this.roomList, room];
   }
 }
