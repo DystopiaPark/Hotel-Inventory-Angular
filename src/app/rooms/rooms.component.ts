@@ -1,5 +1,6 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit, ViewChild } from '@angular/core';
 import { Room, RoomList } from './rooms';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-rooms',
@@ -25,9 +26,13 @@ export class RoomsComponent implements OnInit, DoCheck {
 
   roomList: RoomList[] = [];
 
+  @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
+
   constructor() {}
 
   ngOnInit(): void {
+    console.log(this.headerComponent);
+
     this.roomList = [
       {
         roomNumber: 1,
