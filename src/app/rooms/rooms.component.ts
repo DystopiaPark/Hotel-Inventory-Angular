@@ -4,7 +4,9 @@ import {
   Component,
   DoCheck,
   OnInit,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { Room, RoomList } from './rooms';
 import { HeaderComponent } from '../header/header.component';
@@ -37,6 +39,9 @@ export class RoomsComponent
 
   @ViewChild(HeaderComponent)
   headerComponent!: HeaderComponent;
+
+  @ViewChildren(HeaderComponent)
+  headerChildrenComponent!: QueryList<HeaderComponent>;
 
   constructor() {}
 
@@ -83,6 +88,8 @@ export class RoomsComponent
 
   ngAfterViewInit() {
     this.headerComponent.title = 'Rooms View';
+    console.log((this.headerChildrenComponent.last.title = 'Last Title'));
+    // this.headerChildrenComponent.get(0)
   }
 
   ngAfterViewChecked() {}
