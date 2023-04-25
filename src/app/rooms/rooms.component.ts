@@ -5,6 +5,7 @@ import {
   DoCheck,
   OnInit,
   QueryList,
+  SkipSelf,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -46,7 +47,7 @@ export class RoomsComponent
 
   // roomService = new RoomsService();
 
-  constructor(private roomsService: RoomsService) {}
+  constructor(@SkipSelf() private roomsService: RoomsService) {}
 
   ngOnInit(): void {
     this.roomList = this.roomsService.getRooms();

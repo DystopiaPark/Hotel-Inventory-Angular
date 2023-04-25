@@ -5,6 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { EmployeeComponent } from '../employee/employee.component';
+import { RoomsService } from '../rooms/services/rooms.service';
 
 @Component({
   selector: 'app-container',
@@ -14,7 +15,7 @@ import { EmployeeComponent } from '../employee/employee.component';
 export class ContainerComponent implements OnInit, AfterContentInit {
   @ContentChild(EmployeeComponent) employee!: EmployeeComponent;
 
-  constructor() {}
+  constructor(private roomsService: RoomsService) {}
 
   ngOnInit(): void {}
 
