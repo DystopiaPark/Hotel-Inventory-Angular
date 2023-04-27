@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Inject,
   OnInit,
   Optional,
   ViewChild,
@@ -9,6 +10,7 @@ import {
 } from '@angular/core';
 import { RoomsComponent } from './rooms/rooms.component';
 import { LoggerService } from './logger.service';
+import { localStorageToken } from './localstorage.token';
 
 @Component({
   selector: 'app-root', // html tag, "view"
@@ -29,12 +31,15 @@ export class AppComponent implements OnInit {
 
   @ViewChild('name', { static: true }) name!: ElementRef;
 
-  constructor(@Optional() private loggerService: LoggerService) {}
+  constructor(
+    @Optional() private loggerService: LoggerService,
+    @Inject(localStorageToken) private localStorage: any
+  ) {}
 
   ngOnInit() {
     this.loggerService?.log('AppComponent.ngOnInit()');
     this.name.nativeElement.innertext = 'Hilton Hotel';
-    console.log((this.name.nativeElement.innerText = 'Hilton Hotel'));
+    this.localStorage.setItem('name', 'Hilton Hotel');
   }
 
   // @ViewChild('user', { read: ViewContainerRef }) vcr!: ViewContainerRef;
